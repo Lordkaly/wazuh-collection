@@ -1,4 +1,4 @@
-# Zimbra Log Decoder Configuration for Wazuh Agent
+# Zimbra 8.7 Log Decoder Configuration for Wazuh Agent
 
 This guide describes the steps to configure the Wazuh agent to collect and decode Zimbra logs.
 
