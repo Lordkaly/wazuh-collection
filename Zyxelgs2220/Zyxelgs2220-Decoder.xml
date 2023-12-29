@@ -1,0 +1,24 @@
+<decoder name="zyxelgs2220">
+    <prematch>\d+SWT\d+</prematch>
+</decoder>
+
+<decoder name="zyxelgs2220_LoginSucess">
+    <parent>zyxelgs2220</parent>
+    <prematch>login</prematch>
+    <regex>(\S+) (\d+SWT\d+) authentication: (\S+) user (\S+) (login) \SIP address = (\d+.\d+.\d+.\d+\S)</regex>
+    <order>data, system_name, protocol, srcuser, status, srcip</order>   
+</decoder>
+
+<decoder name="zyxelgs2220_Logout">
+    <parent>zyxelgs2220</parent>
+    <prematch>logout</prematch>
+    <regex> (\S+) (\d+SWT\d+) authentication: (\S+) user (\S+) (logout) \SIP address = (\d+.\d+.\d+.\d+\S)</regex>
+    <order>data, system_name, protocol, srcuser, status, srcip</order>    
+</decoder>
+
+<decoder name="zyxelgs2220_LoginFailed">
+    <parent>zyxelgs2220</parent>
+    <prematch>\S+ authentication failure</prematch>
+    <regex> (\S+) (\d+SWT\d+) authentication: (\S+) (authentication failure) \Susername: (\S+), IP address = (\d+.\d+.\d+.\d+\S)</regex>
+    <order>data, system_name, protocol, status, srcuser, srcip</order>    
+</decoder>
