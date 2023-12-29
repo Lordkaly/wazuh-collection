@@ -1,0 +1,105 @@
+<decoder name="zimbra">
+<prematch>cmd=</prematch>
+</decoder>
+
+<decoder name="zimbra-fields">
+<parent>zimbra</parent>
+<regex>name=(\S+);</regex>
+<order>srcuser</order>
+</decoder>
+
+<decoder name="zimbra-fields">
+<parent>zimbra</parent>
+<regex>cmd=Auth; account=(\S+);</regex>
+<order>srcuser</order>
+</decoder>
+
+<decoder name="zimbra-fields">
+<parent>zimbra</parent>
+<regex>cmd=\S+; name=(\S+);</regex>
+<order>dstuser</order>
+</decoder>
+
+<decoder name="zimbra-fields">
+<parent>zimbra</parent>
+<regex>oip=(\d+.\d+.\d+.\d+)</regex>
+<order>srcip</order>
+</decoder>
+
+<decoder name="zimbra-fields">
+<parent>zimbra</parent>
+<regex>protocol=(\S+);</regex>
+<order>protocol</order>
+</decoder>
+
+<decoder name="zimbra-fields">
+<parent>zimbra</parent>
+<regex>cmd=(\S+);</regex>
+<order>action</order>
+</decoder>
+
+<decoder name="zimbra-fields">
+<parent>zimbra</parent>
+<regex>ZimbraAccountStatus=(\S+);</regex>
+<order>ZimbraAccountStatus</order>
+</decoder>
+
+<decoder name="zimbra-fields">
+<parent>zimbra</parent>
+<regex>ZimbraMailStatus=(\S+);</regex>
+<order>ZimbraMailStatus</order>
+</decoder>
+
+<decoder name="zimbra-fields">
+<parent>zimbra</parent>
+<regex>zimbraIsAdminAccount=(\S+);</regex>
+<order>zimbraIsAdminAccount</order>
+</decoder>
+
+<decoder name="zimbra-fields">
+<parent>zimbra</parent>
+<regex>zimbraPasswordMustChange=(\S+);</regex>
+<order>zimbraPasswordMustChange</order>
+</decoder>
+
+<decoder name="zimbra-fields">
+<parent>zimbra</parent>
+<regex>displayName=(\S+);</regex>
+<order>displayName</order>
+</decoder>
+
+<decoder name="zimbra-fields">
+<parent>zimbra</parent>
+<regex>ua=(\S+);</regex>
+<order>ua</order>
+</decoder>
+
+<decoder name="zimbra-fields">
+<parent>zimbra</parent>
+<regex>(invalid password)</regex>
+<order>status</order>
+</decoder>
+
+<decoder name="zimbra-fields">
+<parent>zimbra</parent>
+<regex>(locked)</regex>
+<order>status</order>
+</decoder>
+
+<decoder name="zimbra-fields">
+<parent>zimbra</parent>
+<regex>(lockout)</regex>
+<order>status</order>
+</decoder>
+
+<decoder name="zimbra-fields">
+<parent>zimbra</parent>
+<regex>(missing userPassword)</regex>
+<order>status</order>
+</decoder>
+
+<decoder name="acessos">
+<parent>windows</parent>
+<regex>Acessos:(\.+)</regex>
+<order>Acessos</order>
+</decoder>
