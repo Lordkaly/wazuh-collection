@@ -1,0 +1,28 @@
+<group name="Cisco,">
+    <rule id="100400" level="0">
+        <decoded_as>cisco3560</decoded_as>
+        <description>Regra root Cisco</description>
+    </rule>
+   
+    <rule id="100401" level="3">
+        <if_sid>100400</if_sid>
+        <regex>Login Success \Suser: \S+ \SSource: \S+ \Slocalport: \d+\S</regex>
+        <description>Login efetuado com sucesso no switch Cisco</description>
+        <group>authentication_success</group>
+    </rule>
+  
+    <rule id="100402" level="4">
+        <if_sid>100400</if_sid>
+        <regex>Login failed \Suser: \S+ \SSource: \S+ \Slocalport: \d+\S</regex>
+        <description>Falha de login no switch Cisco</description>
+        <group>authentication_failed</group>
+    </rule> 
+  
+    <rule id="100403" level="12" frequency="3" timeframe="120">
+        <if_matched_sid>100402</if_matched_sid>
+        <regex>Login failed \Suser: \S+ \SSource: \S+ \Slocalport: \d+\S</regex>
+        <description>Multiplas falhas de login no switch Cisco</description>
+        <group>authentication_failed</group>
+        <options>alert_by_email</options>
+    </rule>
+</group>
