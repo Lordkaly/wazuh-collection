@@ -1,0 +1,15 @@
+<decoder name="cisco3560">
+    <prematch>\S+: \S+: %SEC_LOGIN</prematch>
+</decoder>
+
+<decoder name="cisco3560_LoginSuccess">
+    <parent>cisco3560</parent>
+    <regex>\S+: \S+ %SEC_LOGIN-5-LOGIN_SUCCESS: Login (\S+) \Suser: (\S+) \SSource: (\S+) \Slocalport: (\d+)\S at (\S+ \S+ \S+ \S+ \S+ \S+)</regex>
+    <order>status, srcuser, srcip, dstport, data</order>   
+</decoder>
+
+ <decoder name="cisco3560_LoginFailed"> 
+    <parent>cisco3560</parent> 
+    <regex>\S+: \S+ %SEC_LOGIN-4-LOGIN_FAILED: Login (\S+) \Suser: (\S+) \SSource: (\S+) \Slocalport: (\d+)\S \SReason: Login Authentication Failed\S at (\S+ \S+ \S+ \S+ \S+ \S+)</regex> 
+    <order>status, srcuser, srcip, dstport, data</order>   
+ </decoder>
