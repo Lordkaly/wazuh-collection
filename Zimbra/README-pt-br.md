@@ -1,4 +1,4 @@
-# Configuração do decodificador de log Zimbra para agente Wazuh
+# Configuração do decodificador de log Zimbra 8.7 para agente Wazuh
 
 Este guia descreve as etapas para configurar o agente Wazuh para coletar e decodificar logs do Zimbra.
 
